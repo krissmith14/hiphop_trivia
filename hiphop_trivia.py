@@ -16,6 +16,7 @@ def main():
     Type 'yes' to continue, type 'no' to quit: """)
     num_tries = 0
     total_score = 0
+
     while True:
         if user_option.lower() == "yes":
             user_name = input("Please type in your name: ")
@@ -25,6 +26,7 @@ def main():
                 print("Maybe next time!")
                 quit()
     input("Get ready for your first question! Press ENTER to continue.")
+
     while True:
         while num_tries < 3:
             print(total_score)
