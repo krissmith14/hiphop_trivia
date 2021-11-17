@@ -5,7 +5,7 @@ utilizing defined functions, loops, data sets, modules, and
 data sets
 """
 
-from trivia_pkg.functions import ask_question
+from trivia_pkg.functions import check_answer, question_ask
 
 
 def main():
@@ -29,10 +29,11 @@ def main():
         print(total_score)
         # create separate fx get_questions, returning the question bank
         # use copy.deepcopy to copy question bank
-        answer_bool, answer = ask_question()
-        
+        answer = question_ask()
+    
+        player_answer = input("Answer: ")
 
-        if answer_bool is True:
+        if check_answer(player_answer, answer) is True:
             total_score += 5
             input("That's correct! Press ENTER to continue.")
 

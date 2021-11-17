@@ -7,20 +7,30 @@ from trivia_pkg.questions import trivia_questions
 import copy
 
 
-def ask_question():
+def question_ask():
+    
+    # make a deep copy of the list of trivia_questions
+    questions_list = copy.deepcopy(trivia_questions)
     print()
-    question_2= list(trivia_questions)
-    question = random.choice(list(trivia_questions))
-    print(question)
-    player_answer = input("Answer: ")
-    answer = trivia_questions[question].lower()
-    del trivia_questions[question]
+
+    # select random key from the copy of the trivia_questions
+    player_question = random.choice(list(questions_list))
+
+    # Print the key
+    print(player_question)
+
+    # return the value of the key
+    answer = questions_list[player_question].lower()
+    return answer
+
+
+
+def check_answer(player_answer, answer):
+
     if player_answer == answer:
-        return True, answer
-    if not trivia_questions:
-        print("You win")
-    return False, answer
+        return True
+
+    return False
 
 
-# put question in a separate fx
-# take question bank and 
+
